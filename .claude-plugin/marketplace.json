@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "afonsoalrocha-skills",
+  "description": "Small, single-purpose skills for AI coding and data agents. Each skill loads only what the task needs.",
+  "owner": {
+    "name": "Afonso Rocha",
+    "url": "https://github.com/afonsoalrocha/skills"
+  },
+  "plugins": [
+    {
+      "name": "engineering",
+      "source": "./plugins/engineering",
+      "description": "Specify, design, implement, refactor, review, and ship one software slice at a time.",
+      "license": "MIT",
+      "author": {
+        "name": "Afonso Rocha",
+        "url": "https://github.com/afonsoalrocha"
+      },
+      "homepage": "https://github.com/afonsoalrocha/skills",
+      "repository": "https://github.com/afonsoalrocha/skills"
+    },
+    {
+      "name": "data-architecture",
+      "source": "./plugins/data-architecture",
+      "description": "Data architecture skills. Placeholder until the first skills are added.",
+      "license": "MIT",
+      "author": {
+        "name": "Afonso Rocha",
+        "url": "https://github.com/afonsoalrocha"
+      },
+      "homepage": "https://github.com/afonsoalrocha/skills",
+      "repository": "https://github.com/afonsoalrocha/skills"
+    },
+    {
+      "name": "data-analysis",
+      "source": "./plugins/data-analysis",
+      "description": "Data analysis skills. Placeholder until the first skills are added.",
+      "license": "MIT",
+      "author": {
+        "name": "Afonso Rocha",
+        "url": "https://github.com/afonsoalrocha"
+      },
+      "homepage": "https://github.com/afonsoalrocha/skills",
+      "repository": "https://github.com/afonsoalrocha/skills"
+    },
+    {
+      "name": "common",
+      "source": "./plugins/common",
+      "description": "Cross-domain skills shared by every area. Placeholder until the first skills are added.",
+      "version": "0.1.0",
+      "license": "MIT",
+      "author": {
+        "name": "Afonso Rocha",
+        "url": "https://github.com/afonsoalrocha"
+      },
+      "homepage": "https://github.com/afonsoalrocha/skills",
+      "repository": "https://github.com/afonsoalrocha/skills"
+    }
+  ]
+}

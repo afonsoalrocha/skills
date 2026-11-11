@@ -1,0 +1,38 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Skill structure and leak denylist
+        env:
+          LEAK_DENYLIST: ${{ secrets.LEAK_DENYLIST }}
+        run: ./scripts/validate.sh
+
+      - name: Validator tests
+        run: python3 -m unittest tests/test_validate.py
+
+      - name: gitleaks
+        run: |
+          version=8.30.1
+          archive="gitleaks_${version}_linux_x64.tar.gz"
+          curl -sSfL -o "$archive" "https://github.com/gitleaks/gitleaks/releases/download/v${version}/${archive}"
+          echo "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  ${archive}" | sha256sum -c -
+          tar -xzf "$archive" gitleaks
+          ./gitleaks detect --source . --redact --no-banner
