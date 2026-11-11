@@ -1,0 +1,4 @@
+__pycache__/
+*.py[cod]
+gitleaks
+gitleaks_*.tar.gz
