@@ -60,9 +60,17 @@ One row per skill. A row marked Planned is a reserved name. The folder is not in
 | `architecture-decision-record` | common | Shared | Planned. A software reference is maintained with engineering, and a data reference with data architecture. |
 | `metric-card` | data-analysis | Data analysis | Planned. |
 | `quick-check` | data-analysis | Data analysis | Planned. |
-| `dbt-layered-modeling` | data-architecture | Data architecture | Planned. |
-| `data-quality-gates` | data-architecture | Data architecture | Planned. |
-| `leak-gate` | data-architecture | Data architecture | Planned. |
+| `data-integrity-tdd` | data-architecture | Data architecture | Write the data validator first, and conclude only when it passes. |
+| `sql-performance` | data-architecture | Data architecture | Read less data: project, filter, inspect the plan, and page by key. |
+| `production-db-readonly` | data-architecture | Data architecture | Query production MySQL or PostgreSQL read-only, in that database's dialect. |
+| `databricks-workspace` | data-architecture | Data architecture | Query Databricks and move workspace files with the CLI or a SQL client. |
+| `athena-queries` | data-architecture | Data architecture | Query Athena or Trino with metadata, a byte budget, and safe result reads. |
+| `recurring-pipelines` | data-architecture | Data architecture | Create or operate a recurring data job that repeats safely. |
+| `python-data-scripts` | data-architecture | Data architecture | Write Python data scripts with typed identifiers, time zones, and atomic output. |
+| `dbt-layered-modeling` | data-architecture | Data architecture | Place each dbt model in a layer, with a name, a key, and a materialization. |
+| `data-quality-gates` | data-architecture | Data architecture | Choose quality checks, and decide which ones block publication. |
+| `data-contracts` | data-architecture | Data architecture | Agree and enforce the schema, grain, freshness, and meaning of a shared dataset. |
+| `leak-gate` | data-architecture | Data architecture | Block publication when a private term or a secret is present. |
 
 Owners are areas. Each area is maintained by one of Afonso's AI agents.
 
