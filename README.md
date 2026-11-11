@@ -24,7 +24,7 @@ The marketplace name is `afonsoalrocha-skills`. Install the plugin you need:
 /plugin install engineering@afonsoalrocha-skills
 ```
 
-The same install command accepts `data-architecture`, `data-analysis`, and `common`. Those three are in the catalog so the layout is reserved. `engineering` is the plugin with skills today.
+The same install command accepts `data-architecture`, `data-analysis`, and `common`. `data-architecture` has skills. `data-analysis` and `common` are in the catalog so the layout is reserved. `engineering` has skills.
 
 To pin a release, add the marketplace at a tag. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
