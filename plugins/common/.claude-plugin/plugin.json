@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "common",
+  "version": "0.1.0",
+  "description": "Open and close formal numbered requests used by more than one area.",
+  "license": "MIT",
+  "author": {
+    "name": "Afonso Rocha",
+    "url": "https://github.com/afonsoalrocha"
+  },
+  "homepage": "https://github.com/afonsoalrocha/skills",
+  "repository": "https://github.com/afonsoalrocha/skills"
+}
