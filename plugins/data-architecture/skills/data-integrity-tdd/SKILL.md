@@ -30,7 +30,7 @@ the data "seems" to show.
 2. **Validator first:** `NN_validate_<topic>.py` (or pytest for a pipeline), next to the
    script it validates. Start from `scripts/validator_template.py`.
 3. **Run on both points;** collect every failure, do not stop at the first.
-4. **Record** status `ok` | `partial` | `blocked` and the checks that ran, in the
+4. **Record** status `complete` | `partial` | `blocked` and the checks that ran, in the
    request README or the output manifest.
 
 ## Proportionality

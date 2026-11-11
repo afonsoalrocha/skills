@@ -7,8 +7,8 @@ grain: one row per <entity> per <period>
 primary_key: [<entity>_id, <period>_date]
 freshness:
   loaded_at_field: _loaded_at
-  warn_after_hours: 12
-  error_after_hours: 24
+  warn_after_hours: <warn_hours>   # placeholder; set per source, not a default
+  error_after_hours: <error_hours> # placeholder; set per source, not a default
 columns:
   - name: <entity>_id
     type: string

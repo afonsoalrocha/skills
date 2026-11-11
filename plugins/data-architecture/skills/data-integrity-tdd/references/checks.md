@@ -1,7 +1,7 @@
 # Check catalog and known traps
 
 Use these as a menu, not a fixed sequence. Pick the checks the question needs, write
-them first, and record each result as `ok`, `partial` or `blocked`.
+them first, and record each result as `complete`, `partial` or `blocked`.
 
 ## Identity and grain
 
@@ -41,7 +41,7 @@ them first, and record each result as `ok`, `partial` or `blocked`.
 
 ## Status labels
 
-- `ok`: every blocking check passed.
+- `complete`: every blocking check passed.
 - `partial`: the result is usable with a stated gap (for example one source missing
   a period); write the gap next to the number.
 - `blocked`: a blocking check failed; nothing is concluded or published.

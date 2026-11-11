@@ -1,7 +1,9 @@
 """Leak gate: private denylist scan plus secret regexes over a folder.
 
-Usage: python leak_scan.py [--denylist FILE] [--hide-terms] PATH [PATH ...]
+Usage: python leak_scan.py [--denylist FILE] [--hide-terms] [--require-denylist] PATH [PATH ...]
 Exit 1 on any hit. Denylist: one term per line, '#' comments; terms < 4 chars use word boundaries.
+The denylist is a private file or a CI secret, never a committed list.
+--require-denylist exits 1 when no terms are loaded, so a missing list cannot pass as clean.
 """
 
 from __future__ import annotations
@@ -86,6 +88,11 @@ def main() -> int:
     p.add_argument("paths", nargs="+", type=Path)
     p.add_argument("--denylist", type=Path)
     p.add_argument("--hide-terms", action="store_true", help="print term hashes, for public CI logs")
+    p.add_argument(
+        "--require-denylist",
+        action="store_true",
+        help="exit 1 when no denylist terms are loaded",
+    )
     a = p.parse_args()
     terms = load_terms(a.denylist)
     if not terms:
@@ -93,8 +100,12 @@ def main() -> int:
     hits = scan(a.paths, terms, a.hide_terms, a.denylist)
     for h in hits:
         print(f"ERROR: {h}")
-    print(f"{'ERROR' if hits else 'OK'}: {len(hits)} hits, {len(terms)} terms")
-    return 1 if hits else 0
+    missing = a.require_denylist and not terms
+    if missing:
+        print("ERROR: --require-denylist set but no denylist terms were loaded")
+    failed = bool(hits) or missing
+    print(f"{'ERROR' if failed else 'OK'}: {len(hits)} hits, {len(terms)} terms")
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":
