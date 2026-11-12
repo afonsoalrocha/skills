@@ -21,6 +21,7 @@ the data "seems" to show.
 - An access failure (403, proxy, SSO, timeout) is not "no data": retry, then fail loudly.
 - IDs are strings (leading zeros survive); money is compared with an explicit tolerance, never `==`.
 - Saying "the API/tool cannot do X" requires reading the docs or testing the documented name.
+- A negative claim ("there is none", "never carries", "does not exist") needs a sweep of the whole universe (all events, columns, periods, not only those the script uses), with the swept scope written next to the claim; without the sweep, write "not verified".
 
 ## Flow
 

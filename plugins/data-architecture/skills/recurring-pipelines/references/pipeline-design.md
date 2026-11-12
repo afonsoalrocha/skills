@@ -7,6 +7,9 @@
 Keep integrations (APIs, databases, files, Spark, LLMs) separate from the rules that
 select, classify, summarize and present. A smaller design is fine while it stays clear and testable.
 
+## Migrating LLM steps to rules
+An existing process that calls an LLM over a finite set of scenarios should move to conditional logic. Generic examples: a metric-change comment chosen by threshold, a slide module chosen from a JSON config, a report sent by a loop plus a template. Keep the LLM only for open-ended reasoning or free text.
+
 ## Reproducibility with mutable sources
 - Record the reference date-time with time zone.
 - Allow saving the normalized snapshot used for a run, and regenerating the artifact from it without hitting the source.

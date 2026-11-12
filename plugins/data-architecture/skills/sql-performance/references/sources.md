@@ -6,3 +6,18 @@
 - Trino: EXPLAIN — https://trino.io/docs/current/sql/explain.html
 - Amazon Athena: performance tuning — https://docs.aws.amazon.com/athena/latest/ug/performance-tuning.html
 - Markus Winand, *Use The Index, Luke* — https://use-the-index-luke.com/ (keyset paging, index design)
+- Databricks: join optimization (join order, hints, strategies) — https://docs.databricks.com/aws/en/transform/optimize-joins
+- Databricks: data skipping (file-level statistics and pruning) — https://docs.databricks.com/aws/en/tables/data-skipping
+- MySQL 8.4: optimization and indexes — https://dev.mysql.com/doc/refman/8.4/en/optimization-indexes.html
+- PostgreSQL: multicolumn indexes (column order, left prefix) — https://www.postgresql.org/docs/current/indexes-multicolumn.html
+- PostgreSQL: ANALYZE and planner statistics — https://www.postgresql.org/docs/current/sql-analyze.html
+- Winand: seek versus offset paging — https://use-the-index-luke.com/sql/partial-results/fetch-next-page
+- Winand: predicates over derived data defeat the index — https://use-the-index-luke.com/sql/where-clause/obfuscation/concatenation
+- Lukas Eder (jOOQ): unnecessary mandatory work — https://blog.jooq.org/many-sql-performance-problems-stem-from-unnecessary-mandatory-work/
+- Lukas Eder (jOOQ): `JOIN` versus `EXISTS` — https://blog.jooq.org/sql-join-or-exists-chances-are-youre-doing-it-wrong/
+- Lukas Eder (jOOQ): `COUNT(*)` versus `EXISTS` — https://blog.jooq.org/avoid-using-count-in-sql-when-you-could-use-exists/
+- Percona: measure before guessing — https://www.percona.com/blog/mysql-performance-optimization-dont-guess-measure-with-percona-cloud-tools/
+- Percona: indexes as filter, ordering/grouping and coverage — https://www.percona.com/blog/indexing-101-optimizing-mysql-queries-on-a-single-table/
+- pganalyze: how the PostgreSQL planner works — https://pganalyze.com/blog/deconstructing-the-postgres-planner
+- pganalyze: `CREATE STATISTICS` for better estimates — https://pganalyze.com/blog/5mins-postgres-create-statistics
+- Karau, Polak, Warren, *High Performance Spark*, 2nd ed. — https://www.oreilly.com/library/view/high-performance-spark/9781098145842/
