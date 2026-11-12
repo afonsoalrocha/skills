@@ -34,7 +34,7 @@
     {
       "name": "data-analysis",
       "source": "./plugins/data-analysis",
-      "description": "Data analysis skills. Placeholder until the first skills are added.",
+      "description": "Define metrics, explore unfamiliar sources, validate dashboard numbers, and record durable analysis knowledge.",
       "license": "MIT",
       "author": {
         "name": "Afonso Rocha",
@@ -46,8 +46,7 @@
     {
       "name": "common",
       "source": "./plugins/common",
-      "description": "Cross-domain skills shared by every area. Placeholder until the first skills are added.",
-      "version": "0.1.0",
+      "description": "Open and close formal numbered requests used by more than one area.",
       "license": "MIT",
       "author": {
         "name": "Afonso Rocha",
