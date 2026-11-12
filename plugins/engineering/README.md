@@ -10,5 +10,7 @@ Skills for taking one slice of software from a decision to production.
 | [refactor-slice](skills/refactor-slice/SKILL.md) | Tidy the structure without changing behavior. |
 | [review-delivery](skills/review-delivery/SKILL.md) | Prove the slice and report it without requiring a code reading. |
 | [ship-to-production](skills/ship-to-production/SKILL.md) | Deploy in small reversible steps. |
+| [agent-session-worktrees](skills/agent-session-worktrees/SKILL.md) | Run parallel agent sessions on separate worktrees and branches. |
+| [azure-devops-rest-pitfalls](skills/azure-devops-rest-pitfalls/SKILL.md) | Avoid traps in the Azure DevOps REST API. |
 
 The procedure lives in each skill. This page only points at them.

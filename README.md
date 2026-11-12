@@ -65,6 +65,8 @@ One row per skill. A row marked Planned is a reserved name. The folder is not in
 | `refactor-slice` | engineering | Engineering | Tidy the structure after the slice works, without changing behavior. |
 | `review-delivery` | engineering | Engineering | Prove the slice and report it in language the system owner can sign. |
 | `ship-to-production` | engineering | Engineering | Ship in small reversible steps and see what production is doing. |
+| `agent-session-worktrees` | engineering | Engineering | Keep parallel agent sessions apart: one worktree and branch per session, then a clean merge and close. |
+| `azure-devops-rest-pitfalls` | engineering | Engineering | Avoid the traps in the Azure DevOps REST API: work items, wiki pages, and repository permissions. |
 | `new-request` | common | Data analysis | Open, spec, register, and move a formal numbered request (analytics or engineering) in `requests/registry.yaml`. |
 | `close-request` | common | Data analysis | Close a request only with explicit human approval: gates, outcome complete/partial/blocked, insight log, knowledge review, and the closed transition. |
 | `architecture-decision-record` | common | Shared | Planned. A software reference is maintained with engineering, and a data reference with data architecture. |
