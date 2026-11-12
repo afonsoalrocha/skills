@@ -1,6 +1,6 @@
 ---
 name: close-request
-description: Close a formal request (analytics or engineering) only after explicit human approval: run its gates, label the outcome complete/partial/blocked, write the insight log, do the knowledge review and record the closed transition. Not for opening or moving a request (new-request).
+description: "Close a formal request (analytics or engineering) only after explicit human approval: run its gates, label the outcome complete/partial/blocked, write the insight log, do the knowledge review and record the closed transition. Not for opening or moving a request (new-request)."
 ---
 
 # Close a request

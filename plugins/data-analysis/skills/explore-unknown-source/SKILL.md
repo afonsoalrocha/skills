@@ -1,6 +1,6 @@
 ---
 name: explore-unknown-source
-description: Map an unfamiliar table, view, API or export before relying on it: what each field really contains, how it links to other data, what one row means. Use before claiming a join, a missing field or a grain. Analytical side only; data tests and query cost belong to data engineering.
+description: "Map an unfamiliar table, view, API or export before relying on it: what each field really contains, how it links to other data, what one row means. Use before claiming a join, a missing field or a grain. Analytical side only; data tests and query cost belong to data engineering."
 ---
 
 # Explore an unknown source
@@ -16,7 +16,8 @@ fill rate, distinct count and a few short example values for every field.
 `python scripts/profile_sql.py profile ...` (paths relative to this skill) writes that SQL;
 it splits wide tables into blocks and leaves personal-data fields out. On big or
 partitioned tables, the pruning and sampling discipline of `sql-performance`
-(`references/large-table-profiling.md`) applies; it is not repeated here.
+(its `large-table-profiling` reference, in the `sql-performance` skill) applies; it is not
+repeated here.
 
 ## 2. Interpret the profile
 

@@ -1,6 +1,6 @@
 ---
 name: new-request
-description: Open a formal, numbered work request (analytics or engineering): frame the question or goal, write the spec and acceptance criteria, register it in requests/registry.yaml, or resume and move an open one. Not for one-off checks (quick-check) or closing (close-request).
+description: "Open a formal, numbered work request (analytics or engineering): frame the question or goal, write the spec and acceptance criteria, register it in requests/registry.yaml, or resume and move an open one. Not for one-off checks (quick-check) or closing (close-request)."
 ---
 
 # Open or resume a request
