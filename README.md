@@ -24,7 +24,7 @@ The marketplace name is `afonsoalrocha-skills`. Install the plugin you need:
 /plugin install engineering@afonsoalrocha-skills
 ```
 
-The same install command accepts `data-architecture`, `data-analysis`, and `common`. Those three are in the catalog so the layout is reserved. `engineering` is the plugin with skills today.
+The same install command accepts `data-analysis`, `common`, and `data-architecture`. `data-architecture` is listed so the layout is reserved. The other plugins have skills.
 
 To pin a release, add the marketplace at a tag. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -43,6 +43,16 @@ scripts/sync.sh engineering .cursor/skills
 
 Run the script from a clone of this repository. The first argument is the plugin name. The second is the destination skills folder. The script copies that plugin's skills and writes `<destination>/.skills-lock.json` with the source repository, the commit SHA, and the git tag when the clone is checked out exactly at a tag.
 
+## Requirements
+
+Skill scripts use the Python standard library, except three that need [PyYAML](https://pyyaml.org/):
+
+- `plugins/common/skills/new-request/scripts/registry.py`
+- `plugins/data-analysis/skills/knowledge-base/scripts/check_knowledge.py`
+- `plugins/data-analysis/skills/bi-assets-as-code/scripts/validate_assets.py`
+
+`close-request` calls `registry.py`, so the `common` skills install together.
+
 ## Index
 
 One row per skill. A row marked Planned is a reserved name. The folder is not in the tree yet.
@@ -55,11 +65,16 @@ One row per skill. A row marked Planned is a reserved name. The folder is not in
 | `refactor-slice` | engineering | Engineering | Tidy the structure after the slice works, without changing behavior. |
 | `review-delivery` | engineering | Engineering | Prove the slice and report it in language the system owner can sign. |
 | `ship-to-production` | engineering | Engineering | Ship in small reversible steps and see what production is doing. |
-| `new-request` | common | Data analysis | Planned. |
-| `close-request` | common | Data analysis | Planned. |
+| `new-request` | common | Data analysis | Open, spec, register, and move a formal numbered request (analytics or engineering) in `requests/registry.yaml`. |
+| `close-request` | common | Data analysis | Close a request only with explicit human approval: gates, outcome complete/partial/blocked, insight log, knowledge review, and the closed transition. |
 | `architecture-decision-record` | common | Shared | Planned. A software reference is maintained with engineering, and a data reference with data architecture. |
-| `metric-card` | data-analysis | Data analysis | Planned. |
-| `quick-check` | data-analysis | Data analysis | Planned. |
+| `quick-check` | data-analysis | Data analysis | One-off check in `quick-checks/YYYY-MM-DD-slug/`, with a minimum integrity pass, auto-close the next day, and promotion to a request. |
+| `metric-card` | data-analysis | Data analysis | Own a metric's meaning and status (certified/indicative/blocked), maturity, reconciliation, dated history, and definition changes. |
+| `dashboard-validation` | data-analysis | Data analysis | Reproduce each dashboard number by query, walk down the layers to the source of truth, and log divergences and root cause. |
+| `explore-unknown-source` | data-analysis | Data analysis | Back every claim about an unfamiliar source (links, missing fields, grain) with value profiles and a two-sided link test. |
+| `knowledge-base` | data-analysis | Data analysis | Keep durable knowledge in `knowledge/` and `index.yaml`: where it goes, an agent-ready article standard, and history kept apart. |
+| `aws-quicksight` | data-analysis | Data analysis | Inspect, export, edit, and test QuickSight assets with CLI v2 or boto3; read-only by default; account, profile, and region from environment variables. |
+| `bi-assets-as-code` | data-analysis | Data analysis | Version published BI assets under `products/` with a manifest, changelog, unique ids, inverse relationships, and validation in proportion to the change. |
 | `dbt-layered-modeling` | data-architecture | Data architecture | Planned. |
 | `data-quality-gates` | data-architecture | Data architecture | Planned. |
 | `leak-gate` | data-architecture | Data architecture | Planned. |

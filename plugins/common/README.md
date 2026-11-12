@@ -1,11 +1,18 @@
 # common
 
-Cross-domain skills. This plugin starts as a README so the folder exists. There is no `plugin.json` yet, and there are no skills yet. The marketplace entry points here.
+Cross-domain skills. `new-request` and `close-request` open and close a formal numbered request. They ship together: closing calls `new-request`'s `scripts/registry.py`.
+
+| Skill | What it is for |
+|---|---|
+| [new-request](skills/new-request/SKILL.md) | Frame, spec, register, and move a request. |
+| [close-request](skills/close-request/SKILL.md) | Close a request only after explicit human approval. |
 
 Planned, and not in the tree yet:
 
-- `new-request` (data analysis)
-- `close-request` (data analysis)
 - `architecture-decision-record` (shared: a software reference maintained with engineering, and a data reference maintained with data architecture)
 
-Names and owners are indexed in the repository [README](../../README.md).
+Names are indexed in the repository [README](../../README.md).
+
+## Requirements
+
+`registry.py` needs PyYAML. Closing a request runs that script from `new-request`, so install both skills.

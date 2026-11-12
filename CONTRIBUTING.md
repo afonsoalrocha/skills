@@ -41,7 +41,7 @@ Releases are annotated git tags `vX.Y.Z` (semantic version). A project pins a ve
 - Claude Code: `/plugin marketplace add afonsoalrocha/skills#vX.Y.Z`
 - Any other tool: check out that tag and run `scripts/sync.sh`
 
-Claude Code also reads `version` inside `plugin.json` and keeps an installed plugin on that version until the field changes. A release therefore does both: bump `version` in the plugin manifest, and tag the merged commit with the same number. The `common` plugin has no manifest yet, so its version lives on the marketplace entry until it grows a `plugin.json`. Do not copy `version` into both places. When both are set, the manifest wins and `claude plugin validate` warns.
+Claude Code also reads `version` inside `plugin.json` and keeps an installed plugin on that version until the field changes. A release therefore does both: bump `version` in the plugin manifest, and tag the merged commit with the same number. Every plugin has a `plugin.json`, and that file is where `version` lives. Do not copy `version` onto the marketplace entry as well. When both are set, the manifest wins and `claude plugin validate` warns.
 
 The human maintainer creates the tag after the merge. A pull request does not tag.
 
