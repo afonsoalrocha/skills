@@ -1,6 +1,6 @@
 ---
 name: stakeholder-deliverables
-description: Use when producing a PDF or slide deck that a stakeholder will read: build from an approved template, from validated data, with the source cited, and review every rendered page or slide with a human preview before sending.
+description: "Use when producing a PDF or slide deck that a stakeholder will read: build from an approved template, from validated data, with the source cited, and review every rendered page or slide with a human preview before sending."
 ---
 
 # Stakeholder deliverables

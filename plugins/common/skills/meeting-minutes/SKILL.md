@@ -1,6 +1,6 @@
 ---
 name: meeting-minutes
-description: Use when asked for minutes, a meeting summary or a weekly review deck from a meeting transcript (.vtt or PDF): parse it with the script, show the text summary first, then build the PDF minutes from a template with standard file names.
+description: "Use when asked for minutes, a meeting summary or a weekly review deck from a meeting transcript (.vtt or PDF): parse it with the script, show the text summary first, then build the PDF minutes from a template with standard file names."
 ---
 
 # Meeting minutes
