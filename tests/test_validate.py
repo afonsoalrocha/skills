@@ -166,6 +166,7 @@ class ValidateTests(unittest.TestCase):
 
     def test_extra_skill_check_is_picked_up(self) -> None:
         folder = REPO / "scripts" / "skill_checks"
+        existed = folder.exists()
         folder.mkdir(exist_ok=True)
         module = folder / "example_check.py"
         module.write_text(
@@ -182,7 +183,8 @@ class ValidateTests(unittest.TestCase):
             cache = folder / "__pycache__"
             if cache.exists():
                 shutil.rmtree(cache)
-            folder.rmdir()
+            if not existed:
+                folder.rmdir()
 
 
 class SyncTests(unittest.TestCase):
