@@ -1,6 +1,6 @@
 ---
 name: bi-assets-as-code
-description: Version published BI assets (dashboards, datasets, semantic models, workspaces, apps) as code under products/: asset.yaml, CHANGELOG, unique resource ids, declared relationships, reproducible publishing. Any BI tool. Not for data contracts or pipeline models (data engineering).
+description: "Version published BI assets (dashboards, datasets, semantic models, workspaces, apps) as code under products/: asset.yaml, CHANGELOG, unique resource ids, declared relationships, reproducible publishing. Any BI tool. Not for data contracts or pipeline models (data engineering)."
 ---
 
 # BI assets as code

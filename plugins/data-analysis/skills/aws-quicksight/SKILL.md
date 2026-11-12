@@ -1,6 +1,6 @@
 ---
 name: aws-quicksight
-description: Inspect, export, edit and test AWS QuickSight dashboards, analyses, datasets and data sources with AWS CLI v2 or boto3: list/describe, export definitions, publish versions, trigger and follow SPICE refreshes. Read-only by default. Not for validating the numbers themselves (dashboard-validation).
+description: "Inspect, export, edit and test AWS QuickSight dashboards, analyses, datasets and data sources with AWS CLI v2 or boto3: list/describe, export definitions, publish versions, trigger and follow SPICE refreshes. Read-only by default. Not for validating the numbers themselves (dashboard-validation)."
 ---
 
 # AWS QuickSight

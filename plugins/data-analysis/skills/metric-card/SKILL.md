@@ -1,6 +1,6 @@
 ---
 name: metric-card
-description: Define, revise, certify, downgrade or block a business metric in its card (knowledge/metrics/<id>.yaml): definition, formula, grain, filters, maturity, reconciliation, status certified/indicative/blocked, dated history. Sole owner of metric meaning; catalog validation is data engineering.
+description: "Define, revise, certify, downgrade or block a business metric in its card (knowledge/metrics/<id>.yaml): definition, formula, grain, filters, maturity, reconciliation, status certified/indicative/blocked, dated history. Sole owner of metric meaning; catalog validation is data engineering."
 ---
 
 # Metric card

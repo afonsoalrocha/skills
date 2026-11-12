@@ -1,6 +1,6 @@
 ---
 name: explore-unknown-source
-description: Map an unfamiliar table, view, API or export before relying on it: what each field really contains, how it links to other data, what one row means. Use before claiming a join, a missing field or a grain. Analytical side only; data tests and query cost belong to data engineering.
+description: "Map an unfamiliar table, view, API or export before relying on it: what each field really contains, how it links to other data, what one row means. Use before claiming a join, a missing field or a grain. Analytical side only; data tests and query cost belong to data engineering."
 ---
 
 # Explore an unknown source
