@@ -212,6 +212,8 @@ class SyncTests(unittest.TestCase):
             self.assertEqual(
                 entry["skills"],
                 [
+                    "agent-session-worktrees",
+                    "azure-devops-rest-pitfalls",
                     "design-architecture",
                     "implement-slice",
                     "refactor-slice",
