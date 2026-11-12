@@ -67,6 +67,11 @@ One row per skill. A row marked Planned is a reserved name. The folder is not in
 | `ship-to-production` | engineering | Engineering | Ship in small reversible steps and see what production is doing. |
 | `new-request` | common | Data analysis | Open, spec, register, and move a formal numbered request (analytics or engineering) in `requests/registry.yaml`. |
 | `close-request` | common | Data analysis | Close a request only with explicit human approval: gates, outcome complete/partial/blocked, insight log, knowledge review, and the closed transition. |
+| `session-handoff` | common | Shared | Save or resume session state in a HANDOFF.md that another session or agent can continue from. |
+| `session-retrospective` | common | Shared | Review agent sessions from a collected summary and propose small, deterministic fixes. |
+| `share-web-links` | common | Shared | Give stakeholders a web link computed by a script, never a disk path. |
+| `stakeholder-deliverables` | common | Shared | Produce PDFs and decks from approved templates and validated data, and review every page. |
+| `meeting-minutes` | common | Shared | Turn a transcript into minutes: parse it, summarize it, show the text first, then render. |
 | `architecture-decision-record` | common | Shared | Planned. A software reference is maintained with engineering, and a data reference with data architecture. |
 | `quick-check` | data-analysis | Data analysis | One-off check in `quick-checks/YYYY-MM-DD-slug/`, with a minimum integrity pass, auto-close the next day, and promotion to a request. |
 | `metric-card` | data-analysis | Data analysis | Own a metric's meaning and status (certified/indicative/blocked), maturity, reconciliation, dated history, and definition changes. |

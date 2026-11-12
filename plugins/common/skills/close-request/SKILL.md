@@ -32,7 +32,8 @@ description: Close a formal request (analytics or engineering) only after explic
    then the same script with `validate`.
 7. Fill the closing fields in the README: closed on, result, impact, follow-ups created,
    final scripts. If there is an external ticket, move it and link the published docs.
-8. Merge the request branch following the project's git workflow.
+8. Merge the request branch following the project's git workflow. The explicit yes to close
+   also covers merging the branch and removing its worktree; do not ask a second time.
 
 Registry fields and allowed transitions are in the `new-request` skill, reference `registry.md`.
 
