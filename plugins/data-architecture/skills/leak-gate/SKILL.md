@@ -38,4 +38,5 @@ Read only the reference for the task.
 | Building and maintaining the denylist (what goes in, length limits, false positives) | `references/denylist.md` |
 | Wiring the gate into CI with a secret-held denylist | `references/ci-wiring.md` |
 | Secret patterns and dedicated scanners | `references/secrets.md` |
+| Delivering a sanitized copy of code to someone without repo access | `references/sanitized-handoff.md` |
 | Running the scan | `scripts/leak_scan.py` |

@@ -21,6 +21,7 @@ description: "Use when querying Databricks (Spark SQL / Databricks SQL, Unity Ca
 - Inline results from the Statement API can be truncated silently: assert the expected row count.
 - A shared sandbox schema is scratch space: fully qualified names, never a canonical source, never the final layer for dashboards.
 - Credentials from environment (`DATABRICKS_HOST`, `DATABRICKS_TOKEN`) or a CLI profile in `~/.databrickscfg`; never hard-coded, never printed.
+- To check configuration, list only the environment variable names (a script that prints names by prefix); never `cat` a secrets file or print values.
 - A local timeout does not cancel the statement: cancel it explicitly.
 - Save extracts with the request (Parquet for intermediate, CSV only for small deliverables).
 

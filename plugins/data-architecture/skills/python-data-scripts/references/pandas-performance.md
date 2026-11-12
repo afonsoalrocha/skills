@@ -9,6 +9,7 @@
 - Filter and aggregate in the database; on file reads use `usecols`, `dtype`, `parse_dates`.
 - Prefer vectorized ops, masks, `groupby`, `merge`, `map`, NumPy. Vectorized string ops can still be slow and memory-hungry: measure.
 - No `iterrows` on real workloads; if a loop is unavoidable, `itertuples(index=False)` with a tiny body.
+- A loop over a few rows of a deliverable (formatting, rendering) is fine; the `iterrows` ban is for real volume.
 - `apply(axis=1)` is not vectorization.
 - Replace repeated lookups and nested loops with `dict`, `set`, index, `merge` or pre-aggregation.
 - Top-N: `nlargest` / `nsmallest` after checking nulls and ties.
@@ -20,4 +21,5 @@
 - Keep only needed columns in intermediates; avoid chains of defensive copies.
 - Bigger than memory: chunked reads with incremental map/reduce aggregates; measure the real peak.
 - Intermediate cache in Parquet (`to_parquet(index=False)`, `read_parquet(columns=[...])`): keeps types, IDs stay `str`. CSV/XLSX for deliverables and small caches.
+- Do not add a heavy dependency without a measured gain.
 - Do not parallelize by reflex: it raises memory and source load; only after profiling and within source limits.

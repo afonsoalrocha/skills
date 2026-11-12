@@ -38,6 +38,10 @@ them first, and record each result as `complete`, `partial` or `blocked`.
   load of date Y). A stale copy produces a false divergence.
 - Claim a system "cannot" do something only after reading its docs or calling a
   documented parameter. A homemade parameter that errors proves nothing.
+- A negative claim ("there is none", "never carries", "does not exist") in a README, KB
+  or wiki needs a sweep of the whole universe (all events, columns and periods, not only
+  those the script uses). Record the swept scope next to the claim; without the sweep,
+  write "not verified".
 
 ## Status labels
 

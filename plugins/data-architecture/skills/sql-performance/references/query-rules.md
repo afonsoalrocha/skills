@@ -29,4 +29,5 @@
 - Look for unexpected full scans, estimate vs actual gaps, late filters, big shuffles/sorts, spill, skew, row explosion.
 - Weigh total workload cost: duration x frequency, concurrency, rows examined vs returned, bytes read vs delivered. A short query run thousands of times can matter more than a rare long one.
 - Composite index design comes from the workload: equality predicates, first range, order/group, covering, left prefix. Do not apply "most selective first" blindly.
+- A new index costs storage and write time. Create an index, run `ANALYZE`/`OPTIMIZE` or change table layout only with plan evidence, a benchmark and owner/DBA approval.
 - Change one variable at a time and compare plan, result and metrics; one wall-clock run is not evidence.

@@ -13,6 +13,7 @@
 
 ## Config and secrets
 - Read environment variables or `.env` (`python-dotenv`) at the edge; parameterize with `argparse` (window, source, `--dry-run`).
+- Read an external CSV that may carry a BOM with `encoding="utf-8-sig"`; otherwise the first column becomes `\ufeffname` and the join key never matches.
 - Check which variable names exist with a script that prints names only, never values.
 
 ## Logging and subprocess

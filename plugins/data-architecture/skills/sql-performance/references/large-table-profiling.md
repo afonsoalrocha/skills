@@ -12,7 +12,7 @@ Every later query must prune on those partition keys; an aggregation with no
 partition predicate is not a viable profile.
 
 Once the slice is chosen, look at real values: a short sample, or `TABLESAMPLE`
-placed immediately after the table name (before `WHERE`). That is usually enough
+placed immediately after the table name (before `WHERE`; in Spark SQL, `TABLESAMPLE (n ROWS)` after the `WHERE` is a syntax error). That is usually enough
 to see embedded JSON, sentinels and free-text patterns. Then run **one** aggregation
 pass on the same slice: row count, approximate distinct counts, and null counts.
 Exact `COUNT(DISTINCT)` across many columns forces heavy shuffles; prefer the
