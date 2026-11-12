@@ -17,6 +17,7 @@ so its published state can be rebuilt from git and every change is traceable.
 - Relationships are declared in `asset.yaml`; every relationship has its inverse in the
   other asset's manifest. A container (workspace, space, folder) holds only structure,
   membership and permissions; it does not own the assets it groups.
+- Publishing a resource does not associate it with a container (workspace, space, folder). Association is an explicit step, recorded in the manifests on both sides.
 - **Before changing**: read the README, the changelog, the current scripts and evidence.
   **After**: append to `CHANGELOG.md` (date, asset, why, change, validation, result).
   Never delete history; mark superseded artifacts as such.
@@ -42,11 +43,13 @@ so its published state can be rebuilt from git and every change is traceable.
 | Permissions | effective access of a sample user, not only the API response |
 
 `python scripts/validate_assets.py` (paths relative to this skill) checks manifests:
-unique ids, inverse relationships, changelog present.
+unique ids, inverse relationships, changelog present. Run it before publishing: an
+`resource_id` collision blocks the publish.
 
 ## Routes
 
 | If the task is... | Read |
 |-------------------|------|
 | `asset.yaml` fields and a changelog entry | `references/manifest.md` |
+| Granting or syncing access to people across assets | `references/access-sync.md` |
 | Tool-specific commands | the tool's skill (for example `aws-quicksight`) |

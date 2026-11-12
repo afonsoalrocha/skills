@@ -18,7 +18,9 @@ Template of the notes: `references/readme-template.md`.
 ## While working
 
 - Keep every query and helper in the check's `scripts/` as files run by path; inline shell
-  snippets are for one-liners only.
+  snippets are for one-liners only. A script longer than about 3 lines goes into a file and
+  runs by path, not through a heredoc or `-c`: shell escaping of backslashes and quotes
+  breaks and the snippet gets rewritten several times.
 - Reuse an extract already on disk when cut and data are unchanged.
 - Extracts and heavy outputs live in external storage; the repo gets notes and code only.
   Ephemeral files use the OS temp directory and are cleaned up; no `tmp/` in the repo.

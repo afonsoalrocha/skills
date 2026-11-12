@@ -29,6 +29,21 @@ that joins examples (`string_agg` in DuckDB/Postgres, `concat_ws` + `collect_lis
 `GROUP_CONCAT ... SEPARATOR` in MySQL 8). Exact `COUNT(DISTINCT)` is used everywhere; when
 the table is large, the cost rules and approximations of `sql-performance` apply.
 
+`profile_sql.py` has no ClickHouse dialect. On ClickHouse, write the per-column trio by hand
+(or generate it from the column list) with `countIf` for filled, `uniqExact` for distinct and
+`groupUniqArray` for examples:
+
+```sql
+SELECT count() AS n_rows,
+  countIf(toString(col) NOT IN ('', '[]', '{}', '0')) AS n_filled,
+  uniqExact(col) AS n_distinct,
+  arrayStringConcat(arraySlice(groupUniqArray(4)(substring(toString(col), 1, 40)), 1, 3), ' ; ') AS examples
+FROM t WHERE created_at >= '2024-01-01' AND created_at < '2024-02-01'
+```
+
+Repeat the trio per column in the same query, in blocks of about a dozen. For the keys
+inside a JSON column: `arrayDistinct(arrayFlatten(groupArray(JSONExtractKeys(col))))`.
+
 ## Link test: one query, both sides
 
 ```sql

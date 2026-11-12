@@ -56,7 +56,12 @@ def wait_ingestion(dataset_id: str, ingestion_id: str, every: int = 15) -> dict:
 - Catch `botocore.exceptions.ClientError`; an `AccessDeniedException` code stops the script
   with the denied action in the message.
 - Write outputs atomically (temp file then rename) to the request's data folder.
-- Some APIs replace whole sets (for example permissions): read the current state first and
-  send the full intended set, or use the grant/revoke fields, so nothing is dropped.
+
+## API pitfalls
+
+- After every mutation, read the resource back and confirm the effect; a successful response is not proof.
+- Permission updates on dashboards, datasets, topics and apps usually replace the whole set, not a delta: read the current state and send the final set, or use the grant/revoke calls, so nothing is dropped. Compare permission sets as sets (principal and action), never by response order.
+- Updating a Topic can drop configuration the call did not resend, such as its refresh schedule: re-describe the schedule afterwards and restore it if missing.
+- A local SDK can lag the service and lack a newer operation: upgrade it or load the current service model before concluding the API cannot do it.
 
 Docs: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html

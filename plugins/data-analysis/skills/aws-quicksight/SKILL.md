@@ -20,6 +20,7 @@ description: Inspect, export, edit and test AWS QuickSight dashboards, analyses,
 - Read-only by default. Any `create-*`, `update-*`, `delete-*` or permission change needs
   explicit approval from the user and a record in the asset's changelog
   (skill `bi-assets-as-code` when assets are versioned).
+- After any mutation, read the resource back and confirm the effect. Permission updates are usually a full replacement set, not a delta (`references/boto3.md`, API pitfalls).
 - List calls are paginated: follow `NextToken` (or a boto3 paginator) and check the total.
   A partial list is not "the asset does not exist".
 - Exported definitions and data snapshots go to the request's data folder in external

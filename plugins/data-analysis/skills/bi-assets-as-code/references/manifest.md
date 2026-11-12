@@ -33,3 +33,7 @@ Changelog entry (append at the top or bottom, consistently, never edit old entri
 - Validation: refresh completed, row count equal to the previous load, old columns unchanged.
 - Result: published; dashboard visuals rechecked.
 ```
+
+When the tool cannot express a link (for example it does not let an app be attached to a
+container), do not declare that relationship: a validator that compares manifests with the
+remote state would contradict it. Record the link in the permissions and the docs instead.
