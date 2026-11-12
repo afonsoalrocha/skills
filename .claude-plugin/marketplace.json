@@ -22,7 +22,7 @@
     {
       "name": "data-architecture",
       "source": "./plugins/data-architecture",
-      "description": "Data architecture skills. Placeholder until the first skills are added.",
+      "description": "Check integrity, query warehouses, model datasets in layers, and gate what gets published.",
       "license": "MIT",
       "author": {
         "name": "Afonso Rocha",

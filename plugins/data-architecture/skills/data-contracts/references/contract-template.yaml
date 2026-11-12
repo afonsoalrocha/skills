@@ -1,0 +1,28 @@
+# Contract template: copy next to the model, fill, review with consumers.
+name: <dataset_name>
+version: 1
+owner: <team-or-role>          # a role, not a person's name, in shared repos
+purpose: "<one sentence, the business question this dataset answers>"
+grain: one row per <entity> per <period>
+primary_key: [<entity>_id, <period>_date]
+freshness:
+  loaded_at_field: _loaded_at
+  warn_after_hours: <warn_hours>   # placeholder; set per source, not a default
+  error_after_hours: <error_hours> # placeholder; set per source, not a default
+columns:
+  - name: <entity>_id
+    type: string
+    nullable: false
+    description: stable identifier from the source system, stored as string
+  - name: <measure>
+    type: decimal(18,2)
+    nullable: false
+    description: "<meaning, unit and currency>"
+    checks: [non_negative]
+  - name: <status>
+    type: string
+    nullable: false
+    accepted_values: [<value_a>, <value_b>]
+consumers:
+  - <dashboard-or-model-or-agent>
+change_policy: "additive changes in place; breaking changes as version N+1 with a deprecation window"
