@@ -41,9 +41,17 @@ One directory, one level deep. No nested folders. Every file in `references/` ha
 
 ### scripts/
 
-A deterministic procedure (a parser, a finite check, a transform) is a program in that skill's `scripts/` directory, not a block of prose.
+Everything deterministic must be deterministic. A step that always produces the same result for the same input is a program, not prose. Formatting, validation, version bumps, scanning, and file generation are this kind of step.
 
-The `scripts/` directory at the repository root is marketplace tooling (`sync.sh`, `validate.py`). It is not a skill.
+Ship that program in the skill's `scripts/` directory. Tooling for the whole marketplace, such as `sync.sh` and `validate.py`, lives in the repository `scripts/` directory instead. That directory is not a skill.
+
+`SKILL.md` only says when to run the script and how to judge its output. `SKILL.md` and `references/` keep what needs an agent to judge. They do not restate a procedure the script already performs.
+
+A script is cheaper than asking a model to repeat the step. It returns the same result every time, it can be tested, and it avoids the mistakes an agent makes when it retypes the procedure.
+
+Example: a naming convention is checked by `scripts/check_naming.py`. The skill says to run it and to treat a non-zero exit as a failed check. The skill does not copy the naming rules the script already enforces.
+
+The validator rejects a `SKILL.md` that names a `scripts/<file>.py` or `scripts/<file>.sh` which is not in that skill or in the repository `scripts/` directory.
 
 ### What does not go in a skill
 
