@@ -23,6 +23,10 @@ Keep the change inside the skills you own. `common` is the cross-domain plugin: 
 
 Follow [CONVENTIONS.md](CONVENTIONS.md). Run `./scripts/validate.sh` before pushing. Skill names are unique across the whole repository, not only inside one plugin.
 
+## Review
+
+- [ ] A step that always returns the same result for the same input is a script in the skill's `scripts/` directory, or in the repository `scripts/` directory. `SKILL.md` says when to run it and how to judge the output, and does not restate the procedure.
+
 Planned skills are listed in the root [README](README.md). Add the folder when the skill is real. An empty skill directory is not a reservation. The README is.
 
 ## Extending the validator

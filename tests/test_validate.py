@@ -164,6 +164,36 @@ class ValidateTests(unittest.TestCase):
         self.assertEqual(errors, [])
         self.assertIn("LEAK_DENYLIST is not set", notice)
 
+    def test_referenced_script_must_exist(self) -> None:
+        write_repo(self.root, MIN_SKILL + "\nRun `scripts/missing.py`.\n")
+        errors = validate.validate(self.root)
+        self.assertTrue(any("scripts/missing.py" in error for error in errors))
+
+    def test_referenced_script_in_the_skill_is_accepted(self) -> None:
+        write_repo(self.root, MIN_SKILL + "\nRun `python scripts/check.py`.\n")
+        script_dir = self.root / "plugins" / "engineering" / "skills" / "demo" / "scripts"
+        script_dir.mkdir()
+        (script_dir / "check.py").write_text("print(1)\n", encoding="utf-8")
+        self.assertEqual(validate.validate(self.root), [])
+
+    def test_another_skills_script_is_not_required_here(self) -> None:
+        write_repo(
+            self.root,
+            MIN_SKILL + "\nRun `python <skills-dir>/other/scripts/registry.py`.\n",
+        )
+        self.assertEqual(validate.validate(self.root), [])
+
+    def test_referenced_shell_script_must_be_executable(self) -> None:
+        write_repo(self.root, MIN_SKILL + "\nRun `scripts/check.sh`.\n")
+        script_dir = self.root / "plugins" / "engineering" / "skills" / "demo" / "scripts"
+        script_dir.mkdir()
+        path = script_dir / "check.sh"
+        path.write_text("#!/bin/sh\nexit 0\n", encoding="utf-8")
+        errors = validate.validate(self.root)
+        self.assertTrue(any("not executable" in error and "scripts/check.sh" in error for error in errors))
+        path.chmod(0o755)
+        self.assertEqual(validate.validate(self.root), [])
+
     def test_extra_skill_check_is_picked_up(self) -> None:
         folder = REPO / "scripts" / "skill_checks"
         existed = folder.exists()
@@ -210,7 +240,13 @@ class SyncTests(unittest.TestCase):
             entry = lock["plugins"]["engineering"]
             self.assertEqual(lock["source"], "https://github.com/afonsoalrocha/skills")
             self.assertEqual(entry["commit"], head)
-            self.assertIsNone(entry["tag"])
+            tag = subprocess.run(
+                ["git", "describe", "--tags", "--exact-match"],
+                cwd=REPO,
+                text=True,
+                capture_output=True,
+            )
+            self.assertEqual(entry["tag"], tag.stdout.strip() or None)
             self.assertEqual(
                 entry["skills"],
                 [

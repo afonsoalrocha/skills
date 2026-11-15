@@ -27,6 +27,10 @@ MAX_DESCRIPTION_CHARS = 300
 MAX_SKILL_LINES = 100
 KEBAB = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 ROUTE_PATH = re.compile(r"references/[A-Za-z0-9._-]+")
+# A skill-local script path. A slash before "scripts/" means another skill's file.
+SCRIPT_PATH = re.compile(
+    r"(?<![/\w.-])scripts/([A-Za-z0-9][A-Za-z0-9_.-]*\.(?:py|sh))\b"
+)
 SKIP_DIRS = {".git", ".hg", ".svn", "node_modules", "__pycache__"}
 DENYLIST_MAX_BYTES = 5_000_000
 
@@ -234,6 +238,28 @@ def check_routes(skill: Skill, errors: list[str]) -> None:
             errors.append(f"{skill.rel}: {relative} is not listed in the routes table")
 
 
+def check_referenced_scripts(skill: Skill, errors: list[str]) -> None:
+    """A scripts/<file>.py or scripts/<file>.sh named in SKILL.md must exist.
+
+    The path is resolved in the skill's scripts/ directory, then in the
+    repository scripts/ directory. other-skill/scripts/tool.py is ignored.
+    Python files are run with python, so only a referenced shell script
+    must be executable.
+    """
+    if skill.text is None:
+        return
+    for name in sorted(set(SCRIPT_PATH.findall(skill.text))):
+        local = skill.directory / "scripts" / name
+        repo = skill.root / "scripts" / name
+        path = local if local.is_file() else repo if repo.is_file() else None
+        relative = f"scripts/{name}"
+        if path is None:
+            errors.append(f"{skill.rel}: referenced script does not exist ({relative})")
+            continue
+        if name.endswith(".sh") and not os.access(path, os.X_OK):
+            errors.append(f"{skill.rel}: referenced script is not executable ({relative})")
+
+
 def check_unique_names(root: Path, skills: list[Skill], errors: list[str]) -> None:
     del root
     seen: dict[str, str] = {}
@@ -338,6 +364,7 @@ SKILL_CHECKS = [
     check_description_length,
     check_skill_line_count,
     check_routes,
+    check_referenced_scripts,
 ]
 
 REPO_CHECKS = [
